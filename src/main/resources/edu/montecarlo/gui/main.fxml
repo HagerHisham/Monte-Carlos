@@ -50,6 +50,17 @@
                     <Label text="● Green: Inside Circle" styleClass="legend-inside" />
                     <Label text="● Red: Outside Circle" styleClass="legend-outside" />
                 </HBox>
+                <!-- Results Log -->
+                <VBox spacing="8" styleClass="panel" VBox.vgrow="ALWAYS">
+                    <Label text="Results Log" styleClass="section-title">
+                        <font>
+                            <Font name="System Bold" size="14" />
+                        </font>
+                    </Label>
+                    <TextArea fx:id="resultsTextArea" editable="false"
+                        wrapText="true" prefRowCount="8"
+                        VBox.vgrow="ALWAYS" />
+                </VBox>
             </VBox>
 
             <!-- Right: Controls and Results -->
@@ -132,12 +143,6 @@
                         <Label fx:id="errorLabel" text="---"
                             GridPane.rowIndex="1" GridPane.columnIndex="1"
                             styleClass="result-value" />
-
-                        <Label text="Points Used:" GridPane.rowIndex="2" styleClass="result-label" />
-                        <Label fx:id="pointsLabel" text="0"
-                            GridPane.rowIndex="2" GridPane.columnIndex="1"
-                            styleClass="result-value" />
-
                         <Label text="Runtime:" GridPane.rowIndex="3" styleClass="result-label" />
                         <Label fx:id="timeLabel" text="---"
                             GridPane.rowIndex="3" GridPane.columnIndex="1"
@@ -155,19 +160,6 @@
                     <Button text="Run Batch Experiments" onAction="#handleRunExperiments"
                         maxWidth="Infinity" styleClass="secondary-button" />
                 </VBox>
-
-                <!-- Results Log -->
-                <VBox spacing="8" styleClass="panel" VBox.vgrow="ALWAYS">
-                    <Label text="Results Log" styleClass="section-title">
-                        <font>
-                            <Font name="System Bold" size="14" />
-                        </font>
-                    </Label>
-                    <TextArea fx:id="resultsTextArea" editable="false"
-                        wrapText="true" prefRowCount="8"
-                        VBox.vgrow="ALWAYS" />
-                </VBox>
-
             </VBox>
         </HBox>
     </center>

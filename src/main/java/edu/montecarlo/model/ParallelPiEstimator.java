@@ -19,10 +19,8 @@ public class ParallelPiEstimator implements PiEstimator {
         long pointsPerTask = config.getTotalPoints() / config.getNumTasks();
         long remainder = config.getTotalPoints() % config.getNumTasks();
 
-        // Create and submit all tasks
         List<Future<Long>> futures = new ArrayList<>();
         for (int i = 0; i < config.getNumTasks(); i++) {
-            // Last task gets any remaining points
             long points = (i == config.getNumTasks() - 1) ? pointsPerTask + remainder : pointsPerTask;
             futures.add(executor.submit(new MonteCarloTask(points)));
         }
@@ -53,12 +51,11 @@ public class ParallelPiEstimator implements PiEstimator {
         public Long call() {
             long hitsInsideCircle = 0;
 
-            // Use ThreadLocalRandom for better performance
             ThreadLocalRandom random = ThreadLocalRandom.current();
 
             for (long i = 0; i < numPoints; i++) {
-                double x = random.nextDouble();
-                double y = random.nextDouble();
+            double x = random.nextDouble() * 2 - 1;
+            double y = random.nextDouble() * 2 - 1;
 
                 if (x * x + y * y <= 1.0) {
                     hitsInsideCircle++;
