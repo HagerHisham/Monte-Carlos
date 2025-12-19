@@ -28,7 +28,7 @@ mvn javafx:run
 ```
 
 
-## 📝 Project Structure
+##  Project Structure
 
 ```
 Test/
